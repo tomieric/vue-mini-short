@@ -1,0 +1,32 @@
+<!--pages/login/login.wxml-->
+<page-meta page-style="overflow: hidden" />
+
+<view class="login-container">
+    <view class="login-bg"></view>
+    <view class="login-main">
+        <navigation-bar bindback="onBack">
+            <view slot="right" data-mode="toggle" bind:tap="onChangeLoginType"><text>{{ mode === 'sso' ? '手机登录' : '免密登录' }}</text></view>
+        </navigation-bar>
+
+        <view class="login-action">
+            <view class="login-action__main">
+                <block wx:if="{{ mode == 'login' }}">
+                    <include src="./signin" />
+                </block>
+                <block wx:else>
+                    <include src="./sso" />
+                </block>
+            </view>
+
+            <view class="login-action__bottom">
+                <view class="login-action__bottom-txt">or</view>
+                <view class="login-action__bottom-link" data-mode="toggle" bind:tap="onChangeLoginType">
+                    <view>其他登录方式</view>
+                    <t-icon name="chevron-right" />
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <t-message id="t-message" />
+</view>

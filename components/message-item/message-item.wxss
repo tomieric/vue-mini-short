@@ -1,0 +1,53 @@
+/* components/message-item/message-item.wxss */
+.message-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 28rpx 32rpx;
+}
+
+.message-item.self {
+    justify-content: flex-end;
+}
+
+.message-item.self .message-item__avatar {
+    order: 2;
+}
+
+.message-item.self .message-item__body {
+    margin-inline: 140rpx 40rpx;
+    order: 1;
+}
+
+.message-item.self .message-item__header {
+    justify-content: flex-end;
+}
+
+.message-item__avatar {
+    width: 160rpx;
+    height: 160rpx;
+}
+
+.message-item__body {
+    margin-inline: 40rpx 140rpx;
+}
+
+.message-item__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24rpx;
+    font-size: 24rpx;
+    line-height: 1.2;
+    color: var(--td-text-color-placeholder);
+    gap: 30rpx;
+}
+
+.message-item__content {
+    box-sizing: border-box;
+    padding: 28rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+    font-size: 32rpx;
+    line-height: 1.5;
+    color: var(--td-text-color-secondary);
+}

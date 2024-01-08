@@ -1,0 +1,17 @@
+<!--components/verify-input/verify-input.wxml-->
+<view class="verify-input">
+    <block wx:for="{{ codes }}"  wx:key="index">
+        <view class="verify-input__item">
+            <input
+                type="number"
+                value="{{ item }}"
+                focus="{{ focusIndex === index }}"
+                maxlength="1"
+                data-index="{{index}}"
+                class="input"
+                hold-keyboard
+                bind:input="onInputNumber"
+            />
+        </view>
+    </block>
+</view>

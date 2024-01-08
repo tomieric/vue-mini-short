@@ -1,0 +1,16 @@
+<view>
+    <view class="header">
+        <view>欢迎登录</view>
+    </view>
+    <view class="sign-form">
+        <view>
+            <t-input value="{{ loginForm.mobile }}" type="number" maxlength="{{ 11 }}" placeholder="输入手机号码" bindchange="onInputMobile" />
+        </view>
+        <view>
+            <t-input value="{{ loginForm.password }}" type="password" placeholder="输入密码" bindchange="onInputPwd" />
+        </view>
+        <view class="sign-button">
+            <t-button theme="primary" size="large" shape="round" disabled="{{ loginBtnDisabled }}" block bind:tap="onLoginTap">登录</t-button>
+        </view>
+    </view>
+</view>

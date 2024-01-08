@@ -1,0 +1,31 @@
+/* components/verify-input/verify-input.wxss */
+.verify-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.verify-input__item {
+    width: 104rpx;
+    height: 104rpx;
+    background: var(--td-brand-color);
+    border-radius: 24rpx;
+    color: #fff;
+    font-size: 56rpx;
+    line-height: 104rpx;
+    text-align: center;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.verify-input__item  .input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20rpx;
+}
+
+.verify-input__item  .input:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,10 @@
+{
+    "renderer": "skyline",
+  "usingComponents": {
+      "message-item": "/components/message-item/message-item",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-loading": "tdesign-miniprogram/loading/loading"
+  }
+}

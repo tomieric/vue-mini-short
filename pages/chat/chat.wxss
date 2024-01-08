@@ -1,0 +1,47 @@
+/* pages/chat/chat.wxss */
+.container {
+    --td-navbar-bg-color: var(--td-background-color-hover);
+    background-color: var(--td-background-color-hover);
+}
+
+.scrollarea {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.chat-footer {
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid var(--td-border-color);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.chat-footer__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40rpx;
+    padding: 12rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.chat-input {
+    flex: 1;
+    border-radius: 100rpx;
+}
+
+.loading {
+    position: sticky;
+    top: 10rpx;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.loading-wrapper {
+    padding: 0 40rpx;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 40rpx;
+}

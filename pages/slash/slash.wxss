@@ -1,0 +1,51 @@
+/* pages/slash/slash.wxss */
+.slash {
+    width: 100vw;
+    height: 100vh;
+
+    --td-swiper-nav-dot-color: var(--td-brand-color-light);
+    --td-swiper-nav-dot-active-color: var(--td-brand-color);
+}
+
+.slash .slash-nav {
+    left: 14%;
+    bottom: 90rpx;
+}
+
+.slash-img {
+    object-fit: cover;
+}
+
+.slash-bar {
+    position: fixed;
+    top: 170rpx;
+    box-sizing: border-box;
+    left: 0;
+    width: 100%;
+    padding: 0 48rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slash-bar-text {
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+
+.slash-button {
+    position: fixed;
+    right: 64rpx;
+    bottom: 64rpx;
+}
+
+.slash-button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FF5678;
+    width: 100rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-radius: 100%;
+    color: #fff;
+}

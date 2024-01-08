@@ -1,0 +1,54 @@
+/**app.wxss**/
+page {
+    min-height: 100vh;
+
+    --td-brand-color: #FF5678;
+    --td-brand-color-active: #ff234f;
+    --td-brand-color-light: rgba(255, 86, 120, 0.15);
+    --td-brand-color-disabled: rgba(255, 86, 120, 0.2);
+    --td-text-color-primary: #1B1B21;
+    --td-text-color-secondary: rgba(27, 27, 33, 0.8);
+    --td-text-color-placeholder: rgba(0, 0, 0, 0.4);
+
+    --td-border-color: rgba(27, 27, 33, 0.07);
+    --td-background-color-hover: #F7F9FF;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+} 
+
+.scrollarea {
+    flex: 1;
+    min-height: 0;
+}
+
+.page-header {
+    box-sizing: border-box;
+    padding: 32rpx 32rpx 16rpx;
+    font-size: 32rpx;
+    line-height: 48rpx;
+}
+
+.avatar-outline::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px dashed #FF8282;
+    border-radius: 100%;
+}
+
+.flex-one {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+}
+
+.touch {
+    background-color: rgba(0, 0, 0, 0.02);
+}

@@ -1,0 +1,22 @@
+<view class="popper-container">
+    <view class="popper-header">
+        <view>{{visibleTitle}}</view>
+        <view>{{ visibleData.num }}</view>
+    </view>
+
+    <scroll-view class="popper-scroll-view__container" scroll-y type="list">
+        <view class="popper-scroll-view">
+            <block wx:for="{{ visibleData.users }}" wx:key="id">
+                <view class="list-item">
+                    <t-avatar image="{{ item.avatar }}" t-class="list-item__avatar" />
+                    <view class="list-item__content">
+                        <view class="list-item__content-header">{{item.name}}</view>
+                        <view class="list-item__content-footer">{{item.createdAt}}</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+
+        <t-divider content="没有更多了～"></t-divider>
+    </scroll-view>
+</view>

@@ -1,0 +1,24 @@
+<!--pages/slash/slash.wxml-->
+<page-meta page-style="overflow: hidden" />
+
+<view class="slash-container">
+    <t-swiper
+    t-class="slash"
+    t-class-image="slash-img"
+    t-class-nav="slash-nav"
+    current="{{current}}"
+    list="{{slashList}}"
+    navigation="{{ { type: 'dots-bar' } }}"
+    autoplay="{{ false }}"
+    loop="{{ false }}"
+    height="100%"
+    />
+
+    <navigation-bar back="{{ false }}">
+        <view class="slash-bar-text" slot="right" ontap="onDoneTap">跳过</view>
+    </navigation-bar>
+
+    <view class="slash-button">
+        <t-icon t-class="slash-button-icon" name="arrow-right" size="60rpx" bind:click="onDoneTap" />
+    </view>
+</view>

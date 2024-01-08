@@ -1,0 +1,39 @@
+/* components/albums/albums.wxss */
+.albums {
+    position: relative;
+    border-radius: 40rpx;
+    overflow: hidden;
+}
+
+.albums-poster {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.albums-meta {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    padding: 28rpx 32rpx;
+    display: flex;
+    align-items: center;
+    gap: 54rpx;
+    backdrop-filter: blur(10rpx);
+    color: #fff;
+    border-radius: 0 0 40rpx 40rpx;
+}
+
+.albums-meta__item {
+    display: flex;
+    align-items: center;
+    gap: 10rpx;
+}
+
+.albums-meta__item-text {
+    font-size: 20rpx;
+    line-height: 1.4;
+}

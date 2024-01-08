@@ -1,0 +1,36 @@
+<!--components/albums/albums.wxml-->
+<view class="albums">
+    <t-image
+        src="{{ data.poster }}"
+        width="100%"
+        height="360px"
+        data-type="poster"
+        bind:tap="onActionTap"
+    />
+    <view class="albums-meta">
+        <view
+            class="albums-meta__item"
+            data-type="like"
+            bind:tap="onActionTap"
+        >
+            <t-icon name="heart" />
+            <view class="albums-meta__item-text">1.2k</view>
+        </view>
+        <view 
+            class="albums-meta__item"
+            data-type="comment"
+            bind:tap="onActionTap"
+        >
+            <t-icon name="chat-message" />
+            <view  class="albums-meta__item-text">1.2k</view>
+        </view>
+        <view
+            class="albums-meta__item"
+            data-type="favorite"
+            bind:tap="onActionTap"
+        >
+            <t-icon name="bookmark" />
+            <view  class="albums-meta__item-text">1.2k</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,151 @@
+/* pages/login/login.wxss */
+.login-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.login-bg::before {
+    position: absolute;
+    top: -400rpx;
+    left: -360rpx;
+    content: '';
+    width: 968rpx;
+    height: 968rpx;
+    background: var(--td-brand-color-light);
+    border-radius: 100%;
+    animation: move 10s infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(20rpx, 0);
+    }
+
+    50% {
+        transform: translate(20rpx, -20rpx);
+    }
+
+    75% {
+        transform: translate(20rpx, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.login-bg::after {
+    position: absolute;
+    bottom: -228rpx;
+    left: 452rpx;
+    content: '';
+    width: 460rpx;
+    height: 460rpx;
+    background: var(--td-brand-color-light);
+    border-radius: 100%;
+    animation: scale 20s infinite;
+}
+
+@keyframes scale {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.85;
+        transform: scale(0.94);
+    }
+}
+
+.login-main {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-action__main {
+    height: 940rpx;
+    padding: 240rpx  66rpx 0;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.login-action__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 28rpx;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-action__bottom-txt {
+    color: var(--td-text-color-placeholder);
+    font-size: 32rpx;
+    line-height: 36rpx;
+}
+
+.login-action__bottom-link {
+    display: flex;
+    gap: 16rpx;
+    align-items: center;
+    font-size: 24rpx;
+    line-height: 34rpx;
+    color: var(--td-text-color-secondary);
+}
+
+.header {
+    position: relative;
+    display: inline-flex;
+    margin-bottom: 120rpx;
+    font-size: 64rpx;
+    line-height: 92rpx;
+    font-weight: 700;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    left: 105%;
+    top: 0rpx;
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 100%;
+    border: 2px solid var(--td-brand-color);
+}
+
+.sign-button {
+    padding-top: 88rpx;
+}
+
+.sso-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 48rpx;
+    gap: 20rpx;
+    font-size: 44rpx;
+    line-height: 50rpx;
+}
+
+.sso-mobile .flex-one {
+    flex: 1;
+    font-size: 32rpx;
+    line-height: 48rpx;
+}

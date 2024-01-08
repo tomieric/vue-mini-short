@@ -1,0 +1,63 @@
+<!--pages/message/message.wxml-->
+<page-meta page-style="overflow: hidden" />
+<view class="container">
+    <t-navbar>
+        <view class="search" slot="left">
+            <t-icon name="scan" size="44rpx" bind:click="onNewPost" />
+            <t-input
+                t-class="search-input"
+                borderless
+                placeholder="搜索"
+                suffixIcon="{{ { name: 'search', ariaLabel: '搜索' } }}"
+                confirm-type="search"
+                bind:click="click"
+            />
+        </view>
+    </t-navbar>
+
+    <view class="flex-one content">
+        <view class="page-header">置顶聊天</view>
+        <t-grid class="top-users" column="{{0}}" hover>
+            <block wx:for="{{ topUsers }}" wx:key="index">
+                <t-grid-item
+                    t-class-image="avatar"
+                    text="{{item.name}}"
+                    image="{{item.avatar}}"
+                    image-props="{{ imageProps  }}"
+                    badge-props="{{ { dot: true, color: item.online ? 'rgba(47, 196, 107, 1)' : 'rgba(184, 184, 184, 1)'} }}"
+                    data-user="{{ item }}"
+                    bind:click="toMessagePage"
+                />
+            </block>
+        </t-grid>
+
+        <scroll-view class="scrollarea" enable-flex scroll-y type="list">
+            <view class="message">
+                <block wx:for="{{ messages }}" wx:key="index">
+                    <view class="message-item" hover-class="touch" data-user="{{ item }}" bind:tap="toMessagePage">
+                        <t-image 
+                            src="{{ item.avatar }}"    
+                            width="36"
+                            height="36"
+                            shape="circle"
+                            mode="aspectFill"
+                            t-class="message-item__avatar"
+                         />
+                        <view class="message-item__body">
+                            <view class="message-item__header">
+                                <view class="message-item__title">{{item.name}}</view>
+                                <view class="message-item__time">{{item.createdAt}}</view>
+                            </view>
+                            <view class="message-item__content">
+                                <view class="message-item__text">{{item.message}}</view>
+                                <view class="message-item__unread">
+                                    {{ item.unread }}
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </view>
+</view>

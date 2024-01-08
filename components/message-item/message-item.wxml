@@ -1,0 +1,15 @@
+<!--components/message-item/message-item.wxml-->
+<view class="message-item {{ data[self] ? 'self' : '' }}">
+    <view class="message-item__avatar">
+        <t-avatar image="{{ data[avatar] }}" />
+    </view>
+    <view class="message-item__body">
+        <view class="message-item__header">
+            <view class="message-item__header-text">{{data[name]}}</view>
+            <view class="message-item__header-date">{{data[time]}}</view>
+        </view>
+        <view class="message-item__content">
+            <text>{{ data[message] }}</text>
+        </view>
+    </view>
+</view>

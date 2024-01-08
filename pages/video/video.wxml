@@ -1,0 +1,22 @@
+<!--pages/video/video.wxml-->
+<view class="container">
+    <t-navbar>
+        <view class="search" slot="left">
+            <t-icon name="camera" size="44rpx" bind:click="onNewPost" />
+            <t-input
+                t-class="search-input"
+                borderless
+                placeholder="搜索"
+                suffixIcon="{{ { name: 'search', ariaLabel: '搜索' } }}"
+                confirm-type="search"
+                bind:click="click"
+            />
+        </view>
+    </t-navbar>
+
+    <scroll-view class="scrollarea" enable-flex scroll-y type="list">
+
+
+        <t-footer text="Copyright © 2024-2034 tomieric.All Rights Reserved."></t-footer>
+    </scroll-view>
+</view>

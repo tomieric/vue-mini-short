@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<view class="container">
+    <t-navbar>
+        <view class="search" slot="left">
+            <t-icon name="camera" size="44rpx" bind:click="onNewPost" />
+            <t-input
+                t-class="search-input"
+                borderless
+                placeholder="周末午后的休闲时光"
+                suffixIcon="{{ { name: 'search', ariaLabel: '搜索' } }}"
+                confirm-type="search"
+                bind:click="click"
+            />
+        </view>
+    </t-navbar>
+
+    <scroll-view class="scrollarea" enable-flex scroll-y type="list">
+        <view class="page-header">活跃博主</view>
+        <t-grid class="bloggers" column="{{5}}">
+            <block wx:for="{{ bloggers }}" wx:key="index">
+                <t-grid-item
+                    t-class-image="avatar-outline"
+                    text="{{item.name}}"
+                    image="{{item.avatar}}"
+                    image-props="{{ imageProps  }}"
+                    data-user="{{ item }}"
+                    bind:click="toMessagePage"
+                />
+            </block>
+        </t-grid>
+
+        <view class="albums-container">
+            <block wx:for="{{ albums }}" wx:key="index">
+                <albums data="{{ item }}" bind:action="onAlbumAction" />
+            </block>
+        </view>
+
+        <t-footer text="Copyright © 2024-2034 tomieric.All Rights Reserved."></t-footer>
+    </scroll-view>
+
+    <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
+       <block wx:if="{{ visibleType === 'comment' }}">
+        <include src="./comment" />
+       </block>
+       <block wx:else>
+        <include src="./userList" />
+       </block>
+    </t-popup>
+</view>
