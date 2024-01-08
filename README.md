@@ -1,4 +1,4 @@
-# vue-mini-pick
+# vue-mini-short
 
 基于 `vue-mini` 的原生小程序 Demo
 
