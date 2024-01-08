@@ -2,6 +2,8 @@
 
 基于 `vue-mini` 的原生小程序 Demo
 
+[preview](./shortcuts)
+
 涉及：
 
 - [x] vue-mini
