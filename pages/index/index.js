@@ -1,6 +1,6 @@
 // index.js
-import { definePage, ref, computed } from '@vue-mini/wechat'
-import { useAavtar, usePostAlbums, useStore } from '~/hooks/index'
+import { definePage, ref, computed, watch } from '@vue-mini/wechat'
+import { useAavtar, usePostAlbums, useStore, useRequest } from '~/hooks/index'
 
 definePage(() => {
     const { dispatch } = useStore()
@@ -15,6 +15,14 @@ definePage(() => {
           url: '/pages/video/video',
         })
     }
+
+    const { data } = useRequest({
+        url: 'https://mock.apifox.com/m1/3877951-0-default/v1/search'
+    })
+
+    watch(data, (result) => {
+        console.log(`result: ${result}`)
+    })
 
     const visibleData = ref({})
     function onAlbumAction(e) {

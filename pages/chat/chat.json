@@ -1,5 +1,4 @@
 {
-    "renderer": "skyline",
   "usingComponents": {
       "message-item": "/components/message-item/message-item",
     "t-navbar": "tdesign-miniprogram/navbar/navbar",

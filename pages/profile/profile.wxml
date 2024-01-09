@@ -24,7 +24,7 @@
                         </t-cell-group>
 
                         <view class="btn-logout">
-                            <t-button block size="large" theme="primary" variant="outline" bindtap="onUserLogout">退出登录</t-button>
+                            <t-button block size="large" theme="primary" bindtap="onUserLogout">退出登录</t-button>
                         </view>
                     </view>
                 </view>

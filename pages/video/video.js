@@ -1,66 +1,125 @@
+import { definePage, onReady, ref } from "@vue-mini/wechat";
+import { useToast } from '~/hooks/index'
+import { guid, createRange } from '~/utils/helpers'
+import { pets, foods } from '~/config/resources'
+
+function createMedia(length, type = 'pets') {
+    const windowInfo = wx.getWindowInfo()
+    const colWidth = (windowInfo.screenWidth - 5 * 4 - 8 * 2) / 2
+
+    return Array.from({ length })
+        .map(() => {
+            const poster = type === 'pets'
+                ? pets[createRange(pets.length - 1, 0, false)]
+                : foods[createRange(foods.length - 1, 0, false)]
+            const result = poster.match(/&w=(\d+)&h=(\d+)&/)
+            const height = Math.floor(colWidth * (result[2] / result[1]))
+        
+            return {
+                id: guid('media'),
+                like: createRange(300, 1000, false),
+                type: Math.random() > 0.5 ? 'video' : 'image',
+                poster,
+                width: colWidth,
+                height
+            }
+        })
+}
+
 // pages/video/video.js
-Page({
+definePage((_query, context) => {
+    const Toast = useToast(context)
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+    const homeId = guid('c')
+    const categoryId = ref(homeId)
+    const categories = ref([
+        {
+            id: homeId,
+            text: '萌宠',
+            symbol: '🐱'
+        },
+        {
+            id: guid('c'),
+            text: '服饰',
+            symbol: '👔'
+        },
+        {
+            id: guid('c'),
+            text: '美食',
+            symbol: '🍜' 
+        },
+        {
+            id: guid('c'),
+            text: '烧烤',
+            symbol: '🍖' 
+        },
+        {
+            id: guid('c'),
+            text: '影视',
+            symbol: '🎬' 
+        },
+        {
+            id: guid('c'),
+            text: '美妆',
+            symbol: '💄' 
+        }
+    ])
 
-  },
+    const shortMedia = ref(createMedia(20))
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
+    const onNewPost = () => {
+        wx.chooseMedia()
+    }
 
-  },
+    const refreshShortMedia = () => {
+        shortMedia.value = createMedia(createRange(20, 20, false), categoryId.value === homeId ? 'pets' : 'foods')
+    }
+    const onChangeCategory = (e) => {
+        const { dataset: { id } } = e.currentTarget
+        categoryId.value = id
+        refreshShortMedia(id)
+    }
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
+    const refreshTriggered = ref(false)
+    const bindrefresherrefresh = () => {
+        refreshTriggered.value = true
+        setTimeout(()=> {
+            refreshTriggered.value = false
+            refreshShortMedia()
+            Toast({
+                message: '已经是最新～',
+            });
+            console.log(`bindrefresherrefresh`)
+        }, 1000)
+    }
 
-  },
+    const previewIndex = ref(0)
+    const previewVisible = ref(false)
+    const previewImages = ref([])
+    const onPreview = (e) => {
+        const { dataset: { src } } = e.currentTarget
+        console.log(src)
+        previewImages.value = [src]
+        previewVisible.value = true
+    }
+    const onClosePreview = () => {
+        previewVisible.value = false
+    }
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+    return {
+        categoryId,
+        categories,
+        shortMedia,
+        onNewPost,
+        onChangeCategory,
 
-  },
+        refreshTriggered,
+        bindrefresherrefresh,
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
+        previewIndex,
+        previewVisible,
+        previewImages,
+        onPreview,
+        onClosePreview
+    }
 })

@@ -1,10 +1,10 @@
 {
   "pages": [
+      "pages/video/video",
       "pages/slash/slash",
       "pages/login/login",
       "pages/index/index",
       "pages/message/message",
-      "pages/video/video",
       "pages/profile/profile",
     "pages/chat/chat"
   ],

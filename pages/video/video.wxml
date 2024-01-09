@@ -2,7 +2,7 @@
 <view class="container">
     <t-navbar>
         <view class="search" slot="left">
-            <t-icon name="camera" size="44rpx" bind:click="onNewPost" />
+            <t-icon name="camera" size="44rpx" bind:click="onNewPost"  bind:click="onNewPost" />
             <t-input
                 t-class="search-input"
                 borderless
@@ -14,9 +14,52 @@
         </view>
     </t-navbar>
 
-    <scroll-view class="scrollarea" enable-flex scroll-y type="list">
+    <t-sticky offset-top="{{ 0 }}" container="{{ container }}" bindscroll="bindScrollSticky">
+        <scroll-view scroll-x class="navigator-wrapper" enable-flex style="flex-direction: row;">
+            <view class="navigator">
+                <block wx:for="{{ categories }}" wx:key="id">
+                    <view class="navigator-item {{ categoryId === item.id ? 'active' : '' }}" data-id="{{item.id}}" bind:tap="onChangeCategory">
+                        <view class="navigator-item__icon">{{item.symbol}}</view>
+                        <view class="navigator-item__txt">{{item.text}}</view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </t-sticky>
 
+    <scroll-view class="scrollarea" enable-flex scroll-y type="custom" refresher-enabled 	refresher-triggered="{{ refreshTriggered }}" bindrefresherrefresh="bindrefresherrefresh">
+
+        <view class="media">
+            <grid-view type="masonry" cross-axis-count="{{2}}" cross-axis-gap="{{8}}" main-axis-gap="{{8}}">
+                <block wx:for="{{shortMedia}}" wx:key="id">
+                    <view class="media-item">
+                        <t-image class="media-item__img" src="{{item.poster}}" data-src="{{ item.poster }}" width="{{item.width}}" height="{{item.height}}" mode="aspectFill" bind:tap="onPreview" />
+
+                        <view class="media-item__like">
+                            <t-icon name="heart" />
+                            <view>{{item.like}}</view>
+                        </view>
+                        <view class="media-item__type">
+                            <t-icon wx:if="{{ item.type === 'video' }}" name="video" />
+                            <t-icon wx:else name="image"></t-icon>
+                        </view>
+                    </view>
+                </block>
+            </grid-view>
+        </view>
 
         <t-footer text="Copyright © 2024-2034 tomieric.All Rights Reserved."></t-footer>
     </scroll-view>
+
+    <t-toast id="t-toast" />
+
+    <t-image-viewer
+    deleteBtn="{{false}}"
+    closeBtn="{{true}}"
+    showIndex="{{previewIndex}}"
+    visible="{{previewVisible}}"
+    images="{{previewImages}}"
+    background-color="rgba(0, 0, 0, 0.5)"
+    bind:close="onClosePreview"
+    ></t-image-viewer>
 </view>
