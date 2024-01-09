@@ -4,6 +4,8 @@
 
 [preview](./shortcuts)
 
+![preview](./shortcuts/video_1.jpg)
+
 涉及：
 
 - [x] vue-mini
