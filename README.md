@@ -2,14 +2,14 @@
 
 基于 `vue-mini` 的原生小程序 Demo
 
-[preview](./shortcuts)
-
-![preview](./shortcuts/video_1.jpg)
-
 涉及：
 
 - [x] vue-mini
 - [x] tdesign
+
+[preview](./shortcuts)
+
+![preview](./shortcuts/video_1.jpg)
 
 ## 问题记录
 
