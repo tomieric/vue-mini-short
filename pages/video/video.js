@@ -93,17 +93,14 @@ definePage((_query, context) => {
         }, 1000)
     }
 
-    const previewIndex = ref(0)
-    const previewVisible = ref(false)
-    const previewImages = ref([])
     const onPreview = (e) => {
         const { dataset: { src } } = e.currentTarget
         console.log(src)
-        previewImages.value = [src]
-        previewVisible.value = true
-    }
-    const onClosePreview = () => {
-        previewVisible.value = false
+        // previewImages.value = [src]
+        // previewVisible.value = true
+        wx.previewImage({
+          urls: [src],
+        })
     }
 
     return {
@@ -115,11 +112,6 @@ definePage((_query, context) => {
 
         refreshTriggered,
         bindrefresherrefresh,
-
-        previewIndex,
-        previewVisible,
-        previewImages,
-        onPreview,
-        onClosePreview
+        onPreview
     }
 })

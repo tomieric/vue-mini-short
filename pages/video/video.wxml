@@ -52,14 +52,4 @@
     </scroll-view>
 
     <t-toast id="t-toast" />
-
-    <t-image-viewer
-    deleteBtn="{{false}}"
-    closeBtn="{{true}}"
-    showIndex="{{previewIndex}}"
-    visible="{{previewVisible}}"
-    images="{{previewImages}}"
-    background-color="rgba(0, 0, 0, 0.5)"
-    bind:close="onClosePreview"
-    ></t-image-viewer>
 </view>

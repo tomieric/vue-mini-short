@@ -10,7 +10,15 @@
     flex-direction: column-reverse;
 }
 
+.placeholder {
+    padding-bottom: 200rpx;
+    box-sizing: border-box;
+}
+
 .chat-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
     background-color: #fff;
     border-top: 1px solid var(--td-border-color);

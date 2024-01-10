@@ -6,7 +6,7 @@
     <t-navbar title="{{ title }}" left-arrow />
 
     <scroll-view id="scrollView" class="scrollarea" enable-flex scroll-y type="list" reverse="{{ reverse }}" lower-threshold="{{100}}" bindscroll="bindscroll">
-
+        <view class="placeholder"></view>
         
         <block wx:for="{{ messages }}" wx:key="id">
             <message-item id="{{item.id}}" data="{{ item }}" time="createdAt" />
@@ -21,10 +21,11 @@
         
     </scroll-view>
 
+
     <view class="chat-footer">
         <view class="chat-footer__wrapper">
-            <t-input placeholder="请输入文字" borderless clearable confirm-type="send" t-class="chat-input" value="{{inputMessage}}" bind:change="onChangeInputMessage" />
-            <t-button theme="primary" icon="send" shape="circle" size="large" class="margin" aria-label="搜索" bind:tap="onSendMessage"></t-button>
+            <t-input placeholder="请输入文字" borderless clearable confirm-type="send" t-class="chat-input" always-embed value="{{inputMessage}}" bind:change="onChangeInputMessage" />
+                <t-button theme="primary" icon="send" shape="circle" size="large" class="margin" aria-label="搜索" bind:tap="onSendMessage"></t-button>
         </view>
     </view>
 </view>

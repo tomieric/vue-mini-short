@@ -54,6 +54,7 @@ export function useRequest(options = {}) {
                 data: config.data || {},
                 header: {
                     Authorization,
+                    ...(options.header || {}),
                 },
                 success: (res) => {
                     data.value = res

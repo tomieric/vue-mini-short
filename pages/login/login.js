@@ -32,7 +32,12 @@ definePage({
         }
 
         function onGetVerifyCode() {
-            isSendedMsg.value = true
+            wx.login({
+                success: res => {
+                    console.log(res)
+                    isSendedMsg.value = true
+                }
+            })
         }
 
         async function onDoneTap() {
